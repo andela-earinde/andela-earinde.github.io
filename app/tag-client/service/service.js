@@ -10,25 +10,25 @@ angular.module("taguser.module")
     	return {
             
             getAllTags: function(param) {
-                return $http.get("http://localhost:5000/tags/"+param);
+                return $http.get("https://tag-gate.herokuapp.com/tags/"+param);
             },
 
             getAllUsers: function(param) {
-                return $http.get("http://localhost:5000/users/"+param);
+                return $http.get("https://tag-gate.herokuapp.com/users/"+param);
             },
 
             loginUser: function(params) {
-                return $http.post("http://localhost:5000/users/login", params);
+                return $http.post("https://tag-gate.herokuapp.com/users/login", params);
             },
 
             signupUser: function(params) {
-                return $http.post("http://localhost:5000/users/signup", params);   
+                return $http.post("https://tag-gate.herokuapp.com/users/signup", params);   
             },
 
             getUserInfo: function(params) {
                 var req = {
                     method: "GET",
-                    url: "http://localhost:5000/users",
+                    url: "https://tag-gate.herokuapp.com/users",
                     headers: {
                         "Accept": "application/json",
                         "Authorization": params
@@ -42,7 +42,7 @@ angular.module("taguser.module")
             createTag: function(token, params) {
                 var req = {
                     method: "POST",
-                    url: "http://localhost:5000/users/tag",
+                    url: "https://tag-gate.herokuapp.com/users/tag",
                     headers: {
                         "Accept": "application/json",
                         "Authorization": token
@@ -56,7 +56,7 @@ angular.module("taguser.module")
             editUser: function(token, params) {
                   var req = {
                     method: "PUT",
-                    url: "http://localhost:5000/users/edit",
+                    url: "https://tag-gate.herokuapp.com/users/edit",
                     headers: {
                         "Accept": "application/json",
                         "Authorization": token
@@ -70,7 +70,7 @@ angular.module("taguser.module")
             editTag: function(token, params, name) {
                var req = {
                     method: "PUT",
-                    url: "http://localhost:5000/users/tag/"+name,
+                    url: "https://tag-gate.herokuapp.com/users/tag/"+name,
                     headers: {
                         "Accept": "application/json",
                         "Authorization": token
@@ -84,7 +84,7 @@ angular.module("taguser.module")
             deleteTag: function(token, params) {
               var req = {
                     method: "DELETE",
-                    url: "http://localhost:5000/users/tag",
+                    url: "https://tag-gate.herokuapp.com/users/tag",
                     headers: {
                         "Accept": "application/json",
                         "Authorization": token,
