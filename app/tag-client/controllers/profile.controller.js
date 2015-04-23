@@ -19,7 +19,7 @@ angular.module("taguser.module")
 	                self.userData = response.data;
 	    			var req = {
 	                    method: "GET",
-			            url: "http://localhost:5000/user/tags/"+response.data.username,
+			            url: "https://tag-gate.herokuapp.com/user/tags/"+response.data.username,
 			            headers: {
 			                "Accept": "application/json",
 			                "Authorization": token
@@ -128,7 +128,7 @@ angular.module("taguser.module")
                                    self.userData = response.data;
                                   var req = {
                                         method: "GET",
-                                        url: "http://localhost:5000/user/tags/"+response.data.username,
+                                        url: "https://tag-gate.herokuapp.com/user/tags/"+response.data.username,
                                         headers: {
                                             "Accept": "application/json",
                                             "Authorization": token
