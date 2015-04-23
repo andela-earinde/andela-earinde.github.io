@@ -1,0 +1,56 @@
+<md-dialog arial-label="Edit you profile">
+  <md-toolbar>
+       <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
+        <h2>Edit Your Profile</h2>
+       </div>
+  </md-toolbar>
+  <md-progress-linear md-mode="indeterminate" class="md-accent" ng-hide="hideProg">
+  </md-progress-linear>
+  <md-card class="md-whiteframe-z2" ng-hide="hidemsg">
+    <md-card-content class="login-msg">
+       <p>{{error}}</p>
+    </md-card-content>
+  </md-card>
+  <div layout="column" layout-align="center center" class="dialog-content">
+  <md-card>
+    <md-card-content class="signup-block">
+      <form name="loginForm">
+			  <md-input-container >
+			    <label>Username</label>
+		      <input type="text" name="username" required ng-model="username">
+		      <div ng-messages="loginForm.username.$error">
+		        <div ng-message="required">This field is required</div>
+		      </div>
+			  </md-input-container>
+			  
+			  <md-input-container >
+			    <label>Email</label>
+		      <input type="email" name="email" required ng-model="email">
+		       <div ng-messages="loginForm.email.$error">
+		        <div ng-message="required">This field is required</div>
+		      </div>
+			  </md-input-container>
+
+			  <md-input-container >
+			    <label>Firstname</label>
+		      <input type="text" name="first" required ng-model="firstname">
+		       <div ng-messages="loginForm.first.$error">
+		        <div ng-message="required">This field is required</div>
+		      </div>
+			  </md-input-container>
+
+			  <md-input-container >
+			    <label>Lastname</label>
+		      <input type="text" name="last" required ng-model="lastname">
+		       <div ng-messages="loginForm.last.$error">
+		        <div ng-message="required">This field is required</div>
+		      </div>
+			  </md-input-container>
+			  <md-button class="md-raised md-primary login-but" ng-disabled="loginForm.$invalid" ng-click="editUser()">
+			    Edit
+			  </md-button>
+	  </form>
+    </md-card-content>
+   </md-card>  
+  </div>
+</md-dialog>

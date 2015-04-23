@@ -1,0 +1,54 @@
+<div layout="column" layout-align="center center" class="sign-header"> 
+   <md-progress-linear md-mode="indeterminate" ng-hide="slogin.hideProg" class="md-accent">
+   </md-progress-linear>
+  <md-card class="md-whiteframe-z2">
+    <md-toolbar>
+       <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
+        <h2>Signup</h2>
+       </div>
+    </md-toolbar>
+    <md-card-content class="signup-block">
+      <form name="signupForm">
+			  <md-input-container >
+			    <label>Email</label>
+			      <input type="email" name="emailName" required ng-model="slogin.emailSign">
+			      <div ng-messages="signupForm.emailName.$error">
+			        <div ng-message="required">This field is required</div>
+			        <div ng-message="email">Type in a valid email address</div>
+			      </div>
+			  </md-input-container>
+
+			  <md-input-container>
+			    <label>Password</label>
+		      <input type="password" name="pwd" required ng-model="slogin.passSign">
+		        <div ng-messages="signupForm.pwd.$error">
+		          <div ng-message="required">This field is required</div>
+		        </div>
+			  </md-input-container>
+
+			  <md-input-container>
+			    <label>Username</label>
+		      <input type="text" name="user" required ng-model="slogin.userSign" ng-pattern="slogin.noSpace">
+		        <div ng-messages="signupForm.user.$error">
+		          <div ng-message="required">This field is required</div>
+		          <div ng-message="pattern">There should be no space between the username</div>
+		        </div>
+			  </md-input-container>
+
+			  <md-input-container>
+			    <label>First Name</label>
+		      <input type="text" name="first" ng-model="slogin.firstName">
+			  </md-input-container>
+
+			  <md-input-container>
+			    <label>Last Name</label>
+		      <input type="text" name="last" required ng-model="slogin.lastName">
+			  </md-input-container>
+
+			  <md-button class="md-fab login-but" ng-disabled="signupForm.$invalid"  ng-click="slogin. signupUser()">
+			    Signup
+			  </md-button>
+	  </form>
+    </md-card-content>
+  </md-card>
+</div>

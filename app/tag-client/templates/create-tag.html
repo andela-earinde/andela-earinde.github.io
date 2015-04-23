@@ -1,0 +1,41 @@
+<md-dialog arial-label="Create a Tag">
+  <md-toolbar>
+       <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
+        <h2>Create a Tag</h2>
+       </div>
+  </md-toolbar>
+  <md-progress-linear md-mode="indeterminate" class="md-accent" ng-hide="hideProg">
+  </md-progress-linear>
+  <md-card class="md-whiteframe-z2" ng-hide="hidemsg">
+    <md-card-content class="login-msg">
+       <p>{{error}}</p>
+    </md-card-content>
+  </md-card>
+  <div layout="column" layout-align="center center" class="dialog-content">
+  <md-card>
+    <md-card-content class="login-block">
+      <form name="loginForm">
+			  <md-input-container >
+			    <label>Name</label>
+		      <input type="text" name="emailName" required ng-model="tagName">
+		      <div ng-messages="loginForm.emailName.$error">
+		        <div ng-message="required">This field is required</div>
+		      </div>
+			  </md-input-container>
+			  
+			  <md-input-container >
+			    <label>Description</label>
+		      <input type="text" name="pwd" required ng-model="description">
+		       <div ng-messages="loginForm.pwd.$error">
+		        <div ng-message="required">This field is required</div>
+		      </div>
+			  </md-input-container>
+			  <md-button class="md-raised md-primary login-but" ng-disabled="loginForm.$invalid" ng-click="createTag()">
+			    Create
+			  </md-button>
+	  </form>
+    </md-card-content>
+   </md-card>  
+  </div>
+</md-dialog>
+

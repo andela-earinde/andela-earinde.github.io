@@ -1,0 +1,72 @@
+<md-progress-linear md-mode="indeterminate" class="md-accent" ng-hide="prof.hideProg">
+</md-progress-linear>
+
+<md-grid-list md-cols="4" md-gutter="1em"  md-row-height="4:2">
+    <md-grid-tile md-colspan="2" md-rowspan="2" class="profile">
+      <md-grid-tile-header class="profile-disp">
+        <h3>Profile</h3>
+      </md-grid-tile-header>   
+   
+          <img src="../../assets/users_2.png" alt="" class="edit-image prof-image">
+          <div class="prof-info">
+          	<h3>Username: {{prof.userData.username}}</h3>
+            <h3>Email: {{prof.userData.email}}</h4>
+            <h3>Firstname: {{prof.userData.firstname}}</p>
+            <h3>Lastname: {{prof.userData.lastname}}</p>
+            <h3>Date Joined: {{prof.userData.created_at | date}}</p>
+          </div>
+   </md-grid-tile>
+
+    <md-grid-tile md-colspan="1" md-rowspan="2" class="edit-profile">
+      <md-grid-tile-header>
+        <h3>Edit Profile</h3>
+      </md-grid-tile-header>
+      <md-button ng-click="prof.editProfile($event)">
+         <img src="../../assets/users_edit.png" alt="" class="edit-image">
+      </md-button>
+   </md-grid-tile>
+
+   <md-grid-tile md-colspan="1" md-rowspan="1" class="edit-tags">
+      <md-grid-tile-header>
+        <h3>Create tag</h3>
+      </md-grid-tile-header>
+      <md-button ng-click="prof.createTag($event)">
+        <span class="fa fa-tags fa-5x"></span>
+      </md-button>
+   </md-grid-tile>
+
+   <md-grid-tile md-colspan="1" md-rowspan="1" class="delete">
+      <md-grid-tile-header>
+        <h3>Delete Account</h3>
+      </md-grid-tile-header>
+      <img src="../../assets/delete-icon.png" alt="" class="edit-image">
+   </md-grid-tile>
+
+    <md-grid-tile md-colspan="3" md-rowspan="2" class="tag">
+      <md-grid-tile-header>
+        <h3>Tags</h3>
+      </md-grid-tile-header>
+		    <md-list>
+		     <!-- handle tag chips here -->
+		      <md-item class="md-2-line tags-option md-whiteframe-z1 md-raised" ng-repeat="tags in prof.tagData">
+		        <div class="md-item-text">
+              <md-button ng-click="prof.editTagName($event, $index)">
+                 <span class="fa fa-tag"></span>
+                 <h3>{{tags.tagName}}</h3>
+              </md-button>
+		        </div>
+		      </md-item>
+		      <!-- end of tag chips -->
+		    </md-list>
+   </md-grid-tile>
+
+   <md-grid-tile md-colspan="1" md-rowspan="2" class="sign">
+      <md-grid-tile-header>
+        <h3>Signout</h3>
+      </md-grid-tile-header>
+      <md-button ng-click="prof.signOut()">
+         <img src="../../assets/logout.png" alt="" class="edit-image">
+      </md-button>
+     
+   </md-grid-tile>
+</md-grid-list>
