@@ -233,11 +233,11 @@ angular.module("taguser.module")
          };
          
          $scope.deleteAcct = function() {
-           $scope.hideProg = false
+           $scope.hideProg = true
            var def = FindUserTag.deleteAccount($localStorage.tagToken.token);
            $timeout(function() {
-             $scope.hideProg = true;
-             def.the(function(response) {
+             $scope.hideProg = false;
+             def.then(function(response) {
                if(response.error) {
                   $scope.error = response.error;
                   $scope.hidemsg = false;
