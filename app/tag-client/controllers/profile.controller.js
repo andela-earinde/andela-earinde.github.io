@@ -68,7 +68,8 @@ angular.module("taguser.module")
                          	$scope.error = response.data.error;
                          	$scope.hidemsg = false;
                          }
-                         else {
+                         else { 
+                           $scope.hidemsg = false;
                            $scope.error = response.data.success;
                            FindUserTag.getUserInfo($localStorage.tagToken.token);
                            Init();
@@ -248,7 +249,7 @@ angular.module("taguser.module")
                  $location.url("/login");
                }
              });
-           });
+           }, 3000);
          }  
       }
 
