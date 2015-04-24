@@ -226,6 +226,7 @@ angular.module("taguser.module")
       }
 
       function DelAccntCtrl($scope, $mdDialog) {
+         $scope.hideProg = true;
          $scope.error = "";
          $scope.hidemsg = true;
          $scope.hide = function() {
@@ -233,18 +234,16 @@ angular.module("taguser.module")
          };
          
          $scope.deleteAcct = function() {
-           $scope.hideProg = true
+           $scope.hideProg = false
            var def = FindUserTag.deleteAccount($localStorage.tagToken.token);
            $timeout(function() {
-             $scope.hideProg = false;
+             $scope.hideProg = true;
              def.then(function(response) {
                if(response.error) {
                   $scope.error = response.error;
                   $scope.hidemsg = false;
                }
                else {
-                 $scope.error = response.postgres.success
-                 $scope.hidemsg = false;
                  $localStorage.tagToken = {};
                  $location.url("/login");
                }
