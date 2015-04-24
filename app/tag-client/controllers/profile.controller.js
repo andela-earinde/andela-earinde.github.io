@@ -217,6 +217,42 @@ angular.module("taguser.module")
           }
       }
 
+      self.deleteAccount = function(ev) {
+         $mdDialog.show({
+              controller: DelAccntCtrl,
+              templateUrl: "../app/tag-client/templates/del-profile.html",
+              targetEvent: ev
+          });   
+      }
+
+      function DelAccntCtrl($scope, $mdDialog) {
+         $scope.error = "";
+         $scope.hidemsg = true;
+         $scope.hide = function() {
+           $mdDialog.hide();
+         };
+         
+         $scope.deleteAcct = function() {
+           $scope.hideProg = false
+           var def = FindUserTag.deleteAccount($localStorage.tagToken.token);
+           $timeout(function() {
+             $scope.hideProg = true;
+             def.the(function(response) {
+               if(response.error) {
+                  $scope.error = response.error;
+                  $scope.hidemsg = false;
+               }
+               else {
+                 $scope.error = response.postgres.success
+                 $scope.hidemsg = false;
+                 $localStorage.tagToken = {};
+                 $location.url("/login");
+               }
+             });
+           });
+         }  
+      }
+
     	self.signOut = function() {
     		console.log("called");
     		$localStorage.tagToken = {};

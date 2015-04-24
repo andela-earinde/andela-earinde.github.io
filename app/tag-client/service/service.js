@@ -96,6 +96,20 @@ angular.module("taguser.module")
                 return $http(req);  
             },
 
+            deleteAccount: function(token) {
+               var req = {
+                    method: "DELETE",
+                    url: "https://tag-gate.herokuapp.com/users/delete",
+                    headers: {
+                        "Accept": "application/json",
+                        "Authorization": token,
+                        "Content-Type": "application/json;charset=utf-8"
+                    }
+                }
+
+                return $http(req);    
+            }
+
             returnDefer: function() {
                 return deferred;
             },

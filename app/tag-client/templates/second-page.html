@@ -27,9 +27,9 @@
 		    <md-content class="display-box" layout-padding>
 		        <md-list ng-repeat="t in tag.getTags">
 		            <md-list-item>
-		                <h3>{{t.tagName}}</h3>
-		                <h4>{{t.description}}</h4>
-		                <p>{{t.author}}</p>
+		                <h3>Name: {{t.tagName}}</h3>
+		                <h4>Description: {{t.description}}</h4>
+		                <p>Author: {{t.author}}</p>
 		                <md-divider ng-if="!$last"></md-divider>
 		            </md-list-item>
 		        </md-list>

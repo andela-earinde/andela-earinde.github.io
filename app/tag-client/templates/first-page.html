@@ -27,9 +27,9 @@
 		    <md-content class="display-box" layout-padding>
 		        <md-list ng-repeat="users in tag.getUsers">
 		            <md-list-item>
-		                <h3>{{users.username}}</h3>
-		                <h4>{{users.email}}</h4>
-		                <p>{{users.created_at | date}}</p>
+		                <h3>Name: {{users.username}}</h3>
+		                <h4>Email: {{users.email}}</h4>
+		                <p>Joined: {{users.created_at | date}}</p>
 		                <md-divider ng-if="!$last"></md-divider>
 		            </md-list-item>
 		        </md-list>
