@@ -108,7 +108,7 @@ angular.module("taguser.module")
                 }
 
                 return $http(req);    
-            }
+            },
 
             returnDefer: function() {
                 return deferred;
