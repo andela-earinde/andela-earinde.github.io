@@ -1,0 +1,19 @@
+{
+  "name": "andela-earinde.github.io",
+  "version": "1.0.0",
+  "description": "My about me page",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andela-earinde/andela-earinde.github.io.git"
+  },
+  "author": "Arinde Eniola",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andela-earinde/andela-earinde.github.io/issues"
+  },
+  "homepage": "https://github.com/andela-earinde/andela-earinde.github.io#readme"
+}
