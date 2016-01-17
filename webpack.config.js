@@ -6,8 +6,19 @@ module.exports = {
     'webpack-dev-server/client?http://localhost:8080',
     path.resolve(__dirname, 'app/js/app.js')
   ],
+
   output: {
     path: path.resolve(__dirname, 'build'),
-    filename: 'bundle.js'
-  }
+    filename: 'bundle.js',
+    publicPath: 'http://localhost:8080/build'
+  },
+
+  module: {
+    loaders: [
+      { test: /\.jsx?$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/,
+      }
+    ]
+  },
 }
