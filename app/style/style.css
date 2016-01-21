@@ -1,5 +1,19 @@
-body {
+html {
   padding: 0px;
   margin: 0px;
-  background: url(sweettexture.jpg);
+  background-color: #000000;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url("");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
 }

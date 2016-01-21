@@ -26,6 +26,7 @@
     "webpack": "^1.12.11"
   },
   "dependencies": {
+    "particles.js": "^2.0.0",
     "react": "^0.14.6",
     "react-dom": "^0.14.6",
     "webpack-dev-server": "^1.14.1"
