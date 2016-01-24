@@ -8,6 +8,9 @@ class ParticleRenderer extends React.Component {
   }
 
   componentDidMount() {
+    let images = ["app/assets/react.png",
+                  "app/assets/python.png",
+                  "app/assets/nodejs.png"]
     // This function is from the particle.js amd
     // in the index.html file
     particlesJS("particles-js", {
@@ -23,7 +26,7 @@ class ParticleRenderer extends React.Component {
           "value": "random"
         },
         "shape": {
-          "type": ["circle", "triangle", "star"],
+          "type": ["image", "image", "image"],
           "stroke": {
             "width": 0,
             "color": "#000000"
@@ -32,7 +35,7 @@ class ParticleRenderer extends React.Component {
             "nb_sides": 5
           },
           "image": {
-            "src": "img/github.svg",
+            "src": images[Math.floor(Math.random() * 3)],
             "width": 100,
             "height": 100
           }
