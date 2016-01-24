@@ -4,7 +4,13 @@ import range from 'lodash/range'
 
 import {StaggeredMotion, spring} from 'react-motion'
 
-let childButtonIcons = ['github', 'soundcloud', 'linkedin-square', 'twitter', 'user'];
+let childButtonLink = {'github': 'https://github.com/andela-earinde',
+                        'soundcloud': 'https://soundcloud.com/eniola-arinde',
+                        'linkedin-square': 'https://ng.linkedin.com/in/arinde-eniola-763b0332',
+                        'twitter': 'https://twitter.com/elvongray',
+                        'user': ''}
+
+let childButtonIcons = Object.keys(childButtonLink)
 
 const CHILD_BUTTON_DIAM = 70;
 const SPRING_CONFIG = [400, 28];
@@ -108,7 +114,8 @@ class StaggardMenuChildren extends React.Component {
             {interpolatedStyles.map(({height, left, rotate, scale, top, width}, index) => {
               let display = (index === childButtonIcons.length - 1) ?
                             "crap":
-                            ( <a href="new_page.html" target="_blank" className="childbutton-link">
+                            ( <a href={childButtonLink[childButtonIcons[index]]} target="_blank"
+                                 className="childbutton-link">
                                 <i className={"fa fa-" + childButtonIcons[index] + " fa-3x"}>
                                 </i>
                               </a>)
