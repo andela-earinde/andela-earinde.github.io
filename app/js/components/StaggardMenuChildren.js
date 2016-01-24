@@ -113,7 +113,7 @@ class StaggardMenuChildren extends React.Component {
           <div>
             {interpolatedStyles.map(({height, left, rotate, scale, top, width}, index) => {
               let display = (index === childButtonIcons.length - 1) ?
-                            "crap":
+                            <i className={"fa fa-" + childButtonIcons[index] + " fa-3x"}></i>:
                             ( <a href={childButtonLink[childButtonIcons[index]]} target="_blank"
                                  className="childbutton-link">
                                 <i className={"fa fa-" + childButtonIcons[index] + " fa-3x"}>
@@ -128,6 +128,9 @@ class StaggardMenuChildren extends React.Component {
                     height,
                     top,
                     transform: `rotate(${rotate}deg) scale(${scale})`,
+                    MozTransform: `rotate(${rotate}deg) scale(${scale})`,
+                    msTransform: `rotate(${rotate}deg) scale(${scale})`,
+                    WebkitTransform: `rotate(${rotate}deg) scale(${scale})`,
                     width
                   }}>
                     {display}

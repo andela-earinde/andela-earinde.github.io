@@ -57,7 +57,11 @@ class StaggardMenuComponent extends React.Component {
           {({rotate}) =>
             <div
               className="main-button"
-              style={{...this.mainButtonStyles(), transform: `rotate(${rotate}deg)`}}
+              style={{...this.mainButtonStyles(),
+                transform: `rotate(${rotate}deg)`,
+                MozTransform: `rotate(${rotate}deg)`,
+                msTransform: `rotate(${rotate}deg)`,
+                WebkitTransform: `rotate(${rotate}deg)`}}
               onClick={this.toggleMenu}>
               {/* Using fa-close instead of fa-plus because fa-plus doesn't center properly */}
               <i className="fa fa-close fa-3x"/>
