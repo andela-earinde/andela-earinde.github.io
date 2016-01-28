@@ -16,7 +16,6 @@ class StaggardMenuComponent extends React.Component {
 
     this.state = {
       isOpen: false,
-      childButtons: [],
       changeScene: false
     }
 
@@ -27,11 +26,14 @@ class StaggardMenuComponent extends React.Component {
   }
 
   componentDidMount() {
-    //window.addEventListener('load', this.animateButtonToCenter())
+    window.addEventListener('keypress', this.handleWindowClick.bind(this))
   }
 
-  animateButtonToCenter() {
-    console.log("called")
+  handleWindowClick(event) {
+    this.setState({
+      isOpen: false,
+      changeScene: false
+    })
   }
 
   mainButtonStyles(number) {
@@ -50,29 +52,31 @@ class StaggardMenuComponent extends React.Component {
   expandedMainButtonStyles(number) {
     return {
       borderRadius: 0,
+      backgroundColor: `rgba(255,255,255,0.1)`,
       width: MAIN_BUTTON_DIAM,
       height: MAIN_BUTTON_DIAM,
-      top: this.pos.y - (MAIN_BUTTON_DIAM / 2),
+      top: Math.floor(window.innerWidth / 4) - (MAIN_BUTTON_DIAM / 2),
       left: this.pos.x - (MAIN_BUTTON_DIAM / 2),
-      transform: `scale(${number})`,
-      MozTransform: `scale(${number})`,
-      msTransform: `scale(${number})`,
-      WebkitTransform: `scale(${number})`
+      transform: `scale(${number}, ${number / 2})`,
+      MozTransform: `scale(${number}, ${number / 2})`,
+      msTransform: `scale(${number}, ${number / 2})`,
+      WebkitTransform: `scale(${number}, ${number / 2})`
     }
   }
 
   mainButtonRotation(isOpen) {
-    return isOpen ? {transform: spring(0, [500, 30])} : {transform: spring(-135, [500, 30])}
+    return isOpen ? {transform: spring(0, [192, 2])} : {transform: spring(-135, [192, 2])}
   }
 
-  mainButtonExpantion() {
-    return {transform: spring(2, [500, 30])}
+  mainButtonExpantion(state) {
+    return state === 'contract' ? {transform: spring(0, [192, 10])} : {transform: spring(8, [192, 10])}
   }
 
   toggleMenu() {
-    let{isOpen} = this.state;
+    let {isOpen} = this.state;
     this.setState({
-      isOpen: !isOpen
+      isOpen: !isOpen,
+      changeScene: false
     });
   }
 
@@ -91,7 +95,8 @@ class StaggardMenuComponent extends React.Component {
 
     let display = changeScene ? 'none' : false
 
-    if (changeScene) {
+    if (changeScene || changeScene == 'contract') {
+      state = changeScene
       transformation = this.mainButtonExpantion
       buttonStyle = this.expandedMainButtonStyles.bind(this)
     } else {

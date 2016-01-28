@@ -15,7 +15,7 @@ let childButtonLink = {'github': 'https://github.com/andela-earinde',
 let childButtonIcons = Object.keys(childButtonLink)
 
 const CHILD_BUTTON_DIAM = 70;
-const SPRING_CONFIG = [400, 28];
+const SPRING_CONFIG = [192, 5];
 const OFFSET = 0.4;
 
 let NUM_CHILDREN = childButtonIcons.length;
