@@ -10,7 +10,8 @@ const LinkButton = props => (
 
 const Button = props =>  (
   <i
-    className={`fa fa-${props.icon} fa-3x`}>
+    className={`fa fa-${props.icon} fa-3x`}
+    onClick={props.buttonClicked}>
   </i>
 )
 
