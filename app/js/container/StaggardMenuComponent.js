@@ -16,6 +16,7 @@ class StaggardMenuComponent extends React.Component {
 
     this.state = {
       isOpen: false,
+      // switches between three states: true, false, contract
       changeScene: false
     }
 
