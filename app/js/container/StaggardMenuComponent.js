@@ -26,14 +26,9 @@ class StaggardMenuComponent extends React.Component {
     this.buttonClicked = this.buttonClicked.bind(this)
   }
 
-  componentDidMount() {
-    window.addEventListener('keypress', this.handleWindowClick.bind(this))
-  }
-
   handleWindowClick(event) {
     this.setState({
-      isOpen: false,
-      changeScene: false
+      isOpen: false
     })
   }
 
@@ -50,27 +45,8 @@ class StaggardMenuComponent extends React.Component {
     }
   }
 
-  expandedMainButtonStyles(number) {
-    return {
-      borderRadius: 0,
-      backgroundColor: `rgba(255,255,255,0.1)`,
-      width: MAIN_BUTTON_DIAM,
-      height: MAIN_BUTTON_DIAM,
-      top: Math.floor(window.innerWidth / 4) - (MAIN_BUTTON_DIAM / 2),
-      left: this.pos.x - (MAIN_BUTTON_DIAM / 2),
-      transform: `scale(${number}, ${number / 2})`,
-      MozTransform: `scale(${number}, ${number / 2})`,
-      msTransform: `scale(${number}, ${number / 2})`,
-      WebkitTransform: `scale(${number}, ${number / 2})`
-    }
-  }
-
   mainButtonRotation(isOpen) {
     return isOpen ? {transform: spring(0, [192, 2])} : {transform: spring(-135, [192, 2])}
-  }
-
-  mainButtonExpantion(state) {
-    return state === 'contract' ? {transform: spring(0, [192, 10])} : {transform: spring(8, [192, 10])}
   }
 
   toggleMenu() {
@@ -83,7 +59,6 @@ class StaggardMenuComponent extends React.Component {
 
   buttonClicked() {
     this.setState({
-      changeScene: !this.state.changeScene,
       isOpen: !this.state.isOpen
     })
   }
@@ -92,18 +67,11 @@ class StaggardMenuComponent extends React.Component {
     let {isOpen, changeScene} = this.state;
     let transformation  = null
     let buttonStyle = null
-    let state = isOpen
 
     let display = changeScene ? 'none' : false
 
-    if (changeScene || changeScene == 'contract') {
-      state = changeScene
-      transformation = this.mainButtonExpantion
-      buttonStyle = this.expandedMainButtonStyles.bind(this)
-    } else {
-      transformation = this.mainButtonRotation
-      buttonStyle = this.mainButtonStyles.bind(this)
-    }
+    transformation = this.mainButtonRotation
+    buttonStyle = this.mainButtonStyles.bind(this)
 
     return (
       <div>
@@ -111,7 +79,7 @@ class StaggardMenuComponent extends React.Component {
           mainButtonPos={[this.pos.x, this.pos.y]}
           isOpen={isOpen}
           buttonClicked={this.buttonClicked}/>
-        <Motion style={transformation(state)}>
+        <Motion style={transformation(isOpen)}>
           {({transform}) =>
             <div
               className="main-button"
