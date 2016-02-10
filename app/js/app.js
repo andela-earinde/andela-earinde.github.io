@@ -13,6 +13,10 @@ class App extends React.Component {
       <div className="container">
         <ParticleRenderer />
         <StaggardMenuComponent />
+        <div className="name">
+          <span className="first">ENIOLA ARINDE</span>
+          <span className="second">SOFTWARE DEVELOPER</span>
+        </div>
       </div>
     )
   }

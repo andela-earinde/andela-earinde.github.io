@@ -16,8 +16,6 @@ class StaggardMenuComponent extends React.Component {
 
     this.state = {
       isOpen: false,
-      // switches between three states: true, false, contract
-      changeScene: false
     }
 
     this.pos = {x: Math.floor(window.innerWidth / 2), y: Math.floor(window.innerWidth / 3)}

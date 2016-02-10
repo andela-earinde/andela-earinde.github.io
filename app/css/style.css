@@ -5,6 +5,11 @@ body {
   height: 100%;
   overflow: hidden;
   background-color: #000000;
+  background: url('/app/assets/starry.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -24,4 +29,23 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50% 50%;
+}
+
+.name  {
+  position: relative;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  font-size: 38px;
+  color: white;
+  top: 10%;
+  left: 10%;
+}
+
+.name span {
+  display: block;
+}
+
+.name .first {
+  font-size: 40px;
+  font-weight: 800;
 }
