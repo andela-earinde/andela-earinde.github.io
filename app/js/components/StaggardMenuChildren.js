@@ -10,7 +10,7 @@ let childButtonLink = {'github': 'https://github.com/andela-earinde',
                         'soundcloud': 'https://soundcloud.com/eniola-arinde',
                         'linkedin-square': 'https://ng.linkedin.com/in/arinde-eniola-763b0332',
                         'twitter': 'https://twitter.com/elvongray',
-                        'user': ''}
+                        'user': 'https://about.me/eniolaarinde'}
 
 let childButtonIcons = Object.keys(childButtonLink)
 
