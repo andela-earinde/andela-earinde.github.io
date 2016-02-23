@@ -114,10 +114,7 @@ class StaggardMenuChildren extends React.Component {
         {interpolatedStyles =>
           <div>
             {interpolatedStyles.map(({height, left, rotate, scale, top, width}, index) => {
-              let display = (index === childButtonIcons.length - 1) ?
-                            (<Button icon={childButtonIcons[index]}
-                              buttonClicked={this.props.buttonClicked}/>) :
-                            (<LinkButton
+              let display = (<LinkButton
                               icon={childButtonIcons[index]}
                               link={childButtonLink[childButtonIcons[index]]}/>)
               return (
