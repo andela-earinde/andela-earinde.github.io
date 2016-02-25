@@ -16,26 +16,38 @@ class StaggardMenuComponent extends React.Component {
 
     this.state = {
       isOpen: false,
+      pos: {x: Math.floor(window.innerWidth / 2), y: Math.floor(window.innerWidth / 3)}
     }
 
-    this.pos = {x: Math.floor(window.innerWidth / 2), y: Math.floor(window.innerWidth / 3)}
-
     this.toggleMenu = this.toggleMenu.bind(this)
-    this.buttonClicked = this.buttonClicked.bind(this)
   }
 
-  handleWindowClick(event) {
-    this.setState({
-      isOpen: false
-    })
+  componentDidMount() {
+    if (window.innerWidth < window.innerHeight) {
+        this.setState({
+          pos: {x: Math.floor(window.innerWidth / 3), y: Math.floor(window.innerWidth / 2)}
+        })
+    }
+    window.addEventListener('resize', () => {
+      console.log(window.innerHeight, window.innerWidth);
+      if (window.innerWidth < window.innerHeight) {
+        this.setState({
+          pos: {x: Math.floor(window.innerWidth / 3), y: Math.floor(window.innerWidth / 2)}
+        })
+      } else {
+        this.setState({
+          pos: {x: Math.floor(window.innerWidth / 2), y: Math.floor(window.innerWidth / 3)}
+        })
+      }
+    });
   }
 
   mainButtonStyles(number) {
     return {
       width: MAIN_BUTTON_DIAM,
       height: MAIN_BUTTON_DIAM,
-      top: this.pos.y - (MAIN_BUTTON_DIAM / 2),
-      left: this.pos.x - (MAIN_BUTTON_DIAM / 2),
+      top: this.state.pos.y - (MAIN_BUTTON_DIAM / 2),
+      left: this.state.pos.x - (MAIN_BUTTON_DIAM / 2),
       transform: `rotate(${number}deg)`,
       MozTransform: `rotate(${number}deg)`,
       msTransform: `rotate(${number}deg)`,
@@ -49,15 +61,9 @@ class StaggardMenuComponent extends React.Component {
 
   toggleMenu() {
     let {isOpen} = this.state;
-    this.setState({
-      isOpen: !isOpen,
-      changeScene: false
-    });
-  }
 
-  buttonClicked() {
     this.setState({
-      isOpen: !this.state.isOpen
+      isOpen: !isOpen
     })
   }
 
@@ -74,7 +80,7 @@ class StaggardMenuComponent extends React.Component {
     return (
       <div>
         <StaggardMenuChildren
-          mainButtonPos={[this.pos.x, this.pos.y]}
+          mainButtonPos={[this.state.pos.x, this.state.pos.y]}
           isOpen={isOpen}
           buttonClicked={this.buttonClicked}/>
         <Motion style={transformation(isOpen)}>
