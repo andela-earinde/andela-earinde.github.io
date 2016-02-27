@@ -25,7 +25,7 @@ module.exports = {
       'process.env': {
         'NODE_ENV': '"production"'
       },
-      'global': {},
+      'global.Object.prototype': {},
       'global.GENTLY': false
     }),
     new webpack.optimize.UglifyJsPlugin({
