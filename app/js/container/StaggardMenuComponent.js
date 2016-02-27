@@ -16,7 +16,7 @@ class StaggardMenuComponent extends React.Component {
 
     this.state = {
       isOpen: false,
-      pos: {x: Math.floor(window.innerWidth / 2), y: Math.floor(window.innerWidth / 3)}
+      pos: {x: Math.floor(window.innerWidth / 2), y: Math.floor((window.innerHeight * 2) / 3)}
     }
 
     this.toggleMenu = this.toggleMenu.bind(this)
@@ -25,18 +25,18 @@ class StaggardMenuComponent extends React.Component {
   componentDidMount() {
     if (window.innerWidth < window.innerHeight) {
         this.setState({
-          pos: {x: Math.floor(window.innerWidth / 3), y: Math.floor(window.innerWidth / 2)}
+          pos: {x: Math.floor(window.innerWidth / 2), y: Math.floor((window.innerHeight * 2) / 3)}
         })
     }
     window.addEventListener('resize', () => {
       console.log(window.innerHeight, window.innerWidth);
       if (window.innerWidth < window.innerHeight) {
         this.setState({
-          pos: {x: Math.floor(window.innerWidth / 3), y: Math.floor(window.innerWidth / 2)}
+          pos: {x: Math.floor(window.innerWidth / 2), y: Math.floor((window.innerHeight * 2) / 3)}
         })
       } else {
         this.setState({
-          pos: {x: Math.floor(window.innerWidth / 2), y: Math.floor(window.innerWidth / 3)}
+          pos: {x: Math.floor(window.innerWidth / 2), y: Math.floor((window.innerHeight * 2) / 3)}
         })
       }
     });
