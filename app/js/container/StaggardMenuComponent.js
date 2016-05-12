@@ -29,7 +29,6 @@ class StaggardMenuComponent extends React.Component {
         })
     }
     window.addEventListener('resize', () => {
-      console.log(window.innerHeight, window.innerWidth);
       if (window.innerWidth < window.innerHeight) {
         this.setState({
           pos: {x: Math.floor(window.innerWidth / 2), y: Math.floor((window.innerHeight * 2) / 3)}
