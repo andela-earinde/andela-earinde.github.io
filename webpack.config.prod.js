@@ -14,9 +14,11 @@ module.exports = {
   module: {
     loaders: [
       { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/},
-      { test: /\.css$/, loader: 'style-loader!css-loader' }
+      { test: /\.css$/, loader: 'style-loader!css-loader!postcss-loader' }
     ]
   },
+
+  postcss: [ autoprefixer ],
 
   target: "atom",
 

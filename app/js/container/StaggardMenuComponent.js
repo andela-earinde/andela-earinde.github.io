@@ -19,25 +19,15 @@ class StaggardMenuComponent extends React.Component {
       pos: {x: Math.floor(window.innerWidth / 2), y: Math.floor((window.innerHeight * 2) / 3)}
     }
 
+    this.mainButtonStyles = this.mainButtonStyles.bind(this)
     this.toggleMenu = this.toggleMenu.bind(this)
   }
 
   componentDidMount() {
-    if (window.innerWidth < window.innerHeight) {
-        this.setState({
-          pos: {x: Math.floor(window.innerWidth / 2), y: Math.floor((window.innerHeight * 2) / 3)}
-        })
-    }
     window.addEventListener('resize', () => {
-      if (window.innerWidth < window.innerHeight) {
-        this.setState({
-          pos: {x: Math.floor(window.innerWidth / 2), y: Math.floor((window.innerHeight * 2) / 3)}
-        })
-      } else {
-        this.setState({
-          pos: {x: Math.floor(window.innerWidth / 2), y: Math.floor((window.innerHeight * 2) / 3)}
-        })
-      }
+      this.setState({
+        pos: {x: Math.floor(window.innerWidth / 2), y: Math.floor((window.innerHeight * 2) / 3)}
+      })
     });
   }
 
@@ -68,29 +58,20 @@ class StaggardMenuComponent extends React.Component {
 
   render() {
     let {isOpen, changeScene} = this.state;
-    let transformation  = null
-    let buttonStyle = null
-
-    let display = changeScene ? 'none' : false
-
-    transformation = this.mainButtonRotation
-    buttonStyle = this.mainButtonStyles.bind(this)
 
     return (
       <div>
         <StaggardMenuChildren
           mainButtonPos={[this.state.pos.x, this.state.pos.y]}
-          isOpen={isOpen}
-          buttonClicked={this.buttonClicked}/>
-        <Motion style={transformation(isOpen)}>
+          isOpen={isOpen}/>
+        <Motion style={this.mainButtonRotation(isOpen)}>
           {({transform}) =>
             <div
               className="main-button"
-              style={{...buttonStyle(transform)}}
+              style={{...this.mainButtonStyles(transform)}}
               onClick={this.toggleMenu}>
               {/* Using fa-close instead of fa-plus because fa-plus doesn't center properly */}
-              <i className="fa fa-close fa-3x"
-                 style={{display}}/>
+              <i className="fa fa-close fa-3x"/>
             </div>
           }
         </Motion>
