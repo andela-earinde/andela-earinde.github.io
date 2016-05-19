@@ -6,9 +6,6 @@ body {
   overflow: hidden;
   background-color: #000000;
   background: url('/app/assets/starry.jpg') no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
   background-size: cover;
 }
 

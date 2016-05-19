@@ -1,4 +1,5 @@
 var path = require('path');
+var autoprefixer = require('autoprefixer');
 
 module.exports = {
   devtool: 'cheap-eval-source-map',
@@ -20,7 +21,9 @@ module.exports = {
         loader: 'babel-loader',
         exclude: /node_modules/,
       },
-      { test: /\.css$/, loader: 'style-loader!css-loader' }
+      { test: /\.css$/, loader: 'style-loader!css-loader!postcss-loader' }
     ]
   },
+
+  postcss: [ autoprefixer ]
 }
