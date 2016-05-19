@@ -8,7 +8,7 @@ import {LinkButton, Button} from './StaggardMenuChildButton'
 
 let childButtonLink = {'github': 'https://github.com/elvongray',
                         'soundcloud': 'https://soundcloud.com/eniola-arinde',
-                        'linkedin-square': 'https://ng.linkedin.com/in/arinde-eniola-763b0332',
+                        'linkedin-square': 'https://www.linkedin.com/in/arinde-eniola-763b0332',
                         'twitter': 'https://twitter.com/elvongray',
                         'user': 'https://about.me/eniolaarinde'}
 

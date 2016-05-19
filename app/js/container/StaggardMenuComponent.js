@@ -57,7 +57,7 @@ class StaggardMenuComponent extends React.Component {
   }
 
   render() {
-    let {isOpen, changeScene} = this.state;
+    let {isOpen} = this.state;
 
     return (
       <div>
