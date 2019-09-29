@@ -14,7 +14,7 @@ let childButtonLink = {'github': 'https://github.com/elvongray',
 
 let childButtonIcons = Object.keys(childButtonLink)
 
-const CHILD_BUTTON_DIAM = 70;
+let CHILD_BUTTON_DIAM = 70;
 const SPRING_CONFIG = [192, 5];
 const OFFSET = 0.4;
 
@@ -25,11 +25,20 @@ let NUM_CHILDREN = childButtonIcons.length;
 const DEG_TO_RAD = 0.0174533;
 
 // How far away from the main button does the child buttons go
-const FLY_OUT_RADIUS = 300,
+let FLY_OUT_RADIUS = 300,
   SEPARATION_ANGLE = 40, //degrees
   FAN_ANGLE = (NUM_CHILDREN - 1) * SEPARATION_ANGLE, //degrees
   BASE_ANGLE = ((180 - FAN_ANGLE)/2); // degrees
 
+
+if (window.innerWidth <= 480) {
+  CHILD_BUTTON_DIAM = 50;
+  FLY_OUT_RADIUS = 150
+}
+
+if (window.innerWidth <= 350) {
+  FLY_OUT_RADIUS = 120
+}
 
 // Since JS Math. functions accept value of angle in radians and we've been working in degrees we will need to covert
 // degrees to radians first.

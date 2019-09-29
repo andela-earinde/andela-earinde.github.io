@@ -7,7 +7,11 @@ import StaggardMenuChildren from '../components/StaggardMenuChildren'
 import '../../css/staggard-menu.css'
 
 // Diameter of the main button in pixels
-const MAIN_BUTTON_DIAM = 100;
+let MAIN_BUTTON_DIAM = 100;
+
+if (window.innerWidth <= 480) {
+  MAIN_BUTTON_DIAM = 60;
+}
 
 class StaggardMenuComponent extends React.Component {
 
